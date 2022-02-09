@@ -21,6 +21,8 @@ pipeline{
         stage ("depoly"){
             steps {
                 println "depoly the code"
+                sh "ls -lart"
+                sh "aws s3 cp hello-*.war s3://pipelineart "
             }
         }
     }
