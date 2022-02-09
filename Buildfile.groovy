@@ -15,6 +15,7 @@ pipeline{
         stage ("upload"){
             steps {
                 println "Upload the new file"
+                sh "mvn clean package"
             }
         }
         stage ("depoly"){
