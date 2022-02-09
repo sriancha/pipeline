@@ -1,6 +1,6 @@
 pipeline{
     agent any
-    stages{
+    stages {
 
         stage("build"){
             steps {
@@ -10,12 +10,12 @@ pipeline{
             }
         
         }
-        stage("upload"){
+        stage ("upload"){
             steps {
                 println "Upload the new file"
             }
         }
-        stage("depoly"){
+        stage ("depoly"){
             steps {
                 println "depoly the code"
             }
