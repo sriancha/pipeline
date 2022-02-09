@@ -2,7 +2,7 @@ pipeline{
     agent any
     stages {
 
-        stage("build"){
+        stage("Clone"){
             steps {
                 print "hello Good Morning - clone"
 
