@@ -5,7 +5,7 @@ pipeline{
         stage("build"){
             steps {
                 print "hello Good Morning"
-                sh "mvn clean package"
+                
 
             }
         
