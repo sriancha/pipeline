@@ -6,7 +6,7 @@ pipeline{
             steps {
                 print "hello Good Morning - clone"
 
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git-auth', url: 'https://github.com/sriancha/GitToday.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/Branchname']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git-auth', url: 'https://github.com/sriancha/GitToday.git']]])
                 sh "ls -lart ./*"
 
             }
