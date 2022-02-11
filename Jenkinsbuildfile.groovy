@@ -37,7 +37,7 @@ pipeline{
             steps {
                 println "depoly the code"
                 sh "ls -lart"
-                sh "aws s3 cp target/hello-*.war s3://pipelineart/* "
+                sh "aws s3 cp target/hello-*.war s3://pipelineart"
             }
         }
     }
