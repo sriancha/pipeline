@@ -1,6 +1,9 @@
 pipeline{
     agent any
     stages {
+        string (
+            
+        )
 
         stage("Clone-branch"){
             steps {
