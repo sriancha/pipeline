@@ -1,7 +1,7 @@
 pipeline{
     agent any
     stages {
-        string (
+        string(
             name: 'CommitId',
             defaultValue: '*/dev',
             description: '{Provide your source code branch name}'
