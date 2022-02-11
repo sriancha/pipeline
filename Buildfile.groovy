@@ -1,6 +1,11 @@
 pipeline{
     agent any
     stages {
+        string (
+            name: 'CommitId',
+            defaultValue: '*/dev',
+            description: '{Provide your source code branch name}'
+        )
 
         stage("Clone Repositry"){
             steps {
