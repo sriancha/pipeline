@@ -1,11 +1,15 @@
 pipeline{
     agent any
-    stages {
-        string(
-            name: 'CommitId',
+    parameters {
+        // Define choice parameter.
+        // Define string parameter.
+        string (
+            name: 'source code branch',
             defaultValue: '*/dev',
-            description: '{Provide your source code branch name}'
+            description: '{provide source code branch name}'
         )
+    }
+    stages {
 
         stage("Clone Repositry"){
             steps {
