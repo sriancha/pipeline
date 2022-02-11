@@ -1,7 +1,6 @@
 pipeline{
     agent any
     parameters {
-        // Define choice parameter.
         // Define string parameter.
         string (
             name: 'source code branch',
