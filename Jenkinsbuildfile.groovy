@@ -1,5 +1,10 @@
 pipeline{
     agent any
+     parameters {
+        gitParameter name: 'source code branch',
+                     description: 'Provide the branch name',
+                     defaultValue: 'dev'
+    }
 
     stages {
 
