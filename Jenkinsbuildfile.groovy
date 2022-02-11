@@ -13,7 +13,7 @@ pipeline{
 
         stage("Clone- the Repositry"){
             steps {
-                print "hello-Good Morning - clone"
+                print "hello-Good Morning-clone"
 
                 checkout([$class: 'GitSCM', branches: [[name: "${codebranch}"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git-auth', url: 'https://github.com/sriancha/GitToday.git']]])
                 sh """ls -lart ./*"
