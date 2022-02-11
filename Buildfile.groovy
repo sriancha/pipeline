@@ -2,11 +2,13 @@ pipeline{
     agent any
     parameters {
         // Define string parameter.
-        string (
+        string {
             name: 'source code branch',
             defaultValue: '*/dev',
             description: '{provide source code branch name}'
-        )
+        }
+            
+        
     }
     stages {
 
