@@ -3,11 +3,11 @@ pipeline{
      parameters {
 
         string (
-                     name: 'source code branch',
-                     description: 'Provide the branch name',
-                     defaultValue: '*/master'
-                     ) 
-    }
+                name: 'source code branch',
+                description: 'Provide the branch name',
+                defaultValue: '*/master'
+            ) 
+      }
 
     stages {
 
@@ -15,8 +15,13 @@ pipeline{
             steps {
                 print "hello-Good Morning - clone"
 
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git-auth', url: 'https://github.com/sriancha/GitToday.git']]])
-                sh "ls -lart ./*"
+                checkout([$class: 'GitSCM', branches: [[name: "${codebranch}"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git-auth', url: 'https://github.com/sriancha/GitToday.git']]])
+                sh """ls -lart ./*"
+                echo ${env.JOB-NAME}
+                echo ${codebranch}
+                echo ${BUILD_NUMBER}
+
+                """
 
             }
         
@@ -32,7 +37,7 @@ pipeline{
             steps {
                 println "depoly the code"
                 sh "ls -lart"
-                sh "aws s3 cp target/hello-*.war s3://pipelineart "
+                sh "aws s3 cp target/hello-*.war s3://pipelineart/${env.JOB_NAME}/${codebranch}/${BUILD_NUMBER} "
             }
         }
     }
